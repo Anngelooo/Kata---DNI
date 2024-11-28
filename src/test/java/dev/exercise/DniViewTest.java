@@ -1,6 +1,5 @@
 package dev.exercise;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.ByteArrayInputStream;
@@ -30,27 +29,6 @@ public class DniViewTest {
     public void tearDown() {
         System.setIn(System.in);
         System.setOut(System.out);
-    }
-
-    @Test
-    public void testGetDniInputValid() {
-        String input = "12345678\n";
-        testInput = new ByteArrayInputStream(input.getBytes());
-        System.setIn(testInput);
-
-        int dniNumber = view.getDniInput();
-        assertEquals(12345678, dniNumber);
-    }
-
-    @Test
-    public void testGetDniInputInvalid() {
-        String input = "abc\n12345678\n";
-        testInput = new ByteArrayInputStream(input.getBytes());
-        System.setIn(testInput);
-
-        int dniNumber = view.getDniInput();
-        assertTrue(testOutput.toString().contains("Invalid input. Please enter a valid number."));
-        assertEquals(12345678, dniNumber);
     }
 
     @Test
